@@ -1,17 +1,15 @@
-const container = document.getElementById('container');
+const container = document.createElement('div');
+container.setAttribute('id', 'container')
+document.body.appendChild(container);
 
-document.appendChild(container);
-
-let gridSize = 4;
-
-function addDiv() {
-    document.createElement('div');
-}
+var gridSize = 4;
 
 function createGrid(gridSize) {
-    for (let index = 0; index < gridSize*gridSize; index++) {
-        container.appendChild(addDiv);
+    let container = document.getElementById('container');
+    for (let i = 0; i < gridSize**2; i++) {
+        let newDiv = document.createElement('div');
+        container.appendChild(newDiv);
     }
 }
 
-createGrid()
+createGrid(gridSize);
