@@ -26,12 +26,13 @@ function shakeGrid() {
     while (document.getElementsByClassName("grid")[0]) {
         document.getElementsByClassName("grid")[0].remove();
     }
+    createGrid(gridSize);
 }
 
 function chooseGridSize() {
     shakeGrid();
-    let size = prompt('Please enter a number between 0-100.', '4');
-    createGrid(size); 
+    gridSize = prompt('Please enter a number between 0-100.', '4');
+    createGrid(gridSize); 
 }
 
 createGrid(gridSize);
