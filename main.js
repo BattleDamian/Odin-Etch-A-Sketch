@@ -4,7 +4,6 @@ var containerSize = 400;
 container.style.height = `${containerSize}px`;
 container.style.width = `${containerSize}px`;
 document.body.appendChild(container);
-
 var gridSize = 4;
 
 function createGrid(gridSize) {
@@ -21,6 +20,17 @@ function createGrid(gridSize) {
             document.getElementsByClassName("grid")[i].style.backgroundColor = "black";
         });
     }
+}
+
+function chooseGridSize() {
+    while (document.getElementsByClassName("grid")[0]) {
+        document.getElementsByClassName("grid")[0].remove();
+    }
+    for (let i = 0; i < document.getElementsByClassName("grid").length; i++) {
+        document.getElementsByClassName("grid")[i].remove();
+    }
+    let size = prompt('Please enter a number between 0-100.', '4');
+    createGrid(size); 
 }
 
 createGrid(gridSize);
