@@ -30,9 +30,26 @@ function shakeGrid() {
 }
 
 function chooseGridSize() {
-    shakeGrid();
     gridSize = prompt('Please enter a number between 0-100.', '4');
-    createGrid(gridSize); 
+    if (0 < gridSize && gridSize <= 100) {
+        while (document.getElementsByClassName("grid")[0]) {
+            document.getElementsByClassName("grid")[0].remove();
+        }
+        createGrid(gridSize);;
+    } else {
+        alert('Invalid! Please choose again!')
+        chooseGridSize();
+    }
 }
 
 createGrid(gridSize);
+
+let shakeGridButton = document.createElement('button');
+shakeGridButton.textContent = 'Shake!';
+shakeGridButton.addEventListener('click', shakeGrid);
+document.body.appendChild(shakeGridButton);
+
+let chooseGridSizeButton = document.createElement('button');
+chooseGridSizeButton.textContent = 'Choose Grid Size!';
+chooseGridSizeButton.addEventListener('click', chooseGridSize);
+document.body.appendChild(chooseGridSizeButton);
