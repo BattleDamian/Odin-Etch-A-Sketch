@@ -3,7 +3,7 @@ container.setAttribute('id', 'container');
 var containerSize = 400;
 container.style.height = `${containerSize}px`;
 container.style.width = `${containerSize}px`;
-document.body.appendChild(container);
+
 var gridSize = 4;
 
 function createGrid(gridSize) {
@@ -42,14 +42,20 @@ function chooseGridSize() {
     }
 }
 
-createGrid(gridSize);
+const buttons = document.createElement('div');
+buttons.className = 'buttons';
+document.body.appendChild(buttons);
 
 let shakeGridButton = document.createElement('button');
 shakeGridButton.textContent = 'Shake!';
 shakeGridButton.addEventListener('click', shakeGrid);
-document.body.appendChild(shakeGridButton);
+buttons.appendChild(shakeGridButton);
 
 let chooseGridSizeButton = document.createElement('button');
 chooseGridSizeButton.textContent = 'Choose Grid Size!';
 chooseGridSizeButton.addEventListener('click', chooseGridSize);
-document.body.appendChild(chooseGridSizeButton);
+buttons.appendChild(chooseGridSizeButton);
+
+document.body.appendChild(container);
+
+createGrid(gridSize);
