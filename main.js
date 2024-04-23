@@ -22,13 +22,14 @@ function createGrid(gridSize) {
     }
 }
 
-function chooseGridSize() {
+function shakeGrid() {
     while (document.getElementsByClassName("grid")[0]) {
         document.getElementsByClassName("grid")[0].remove();
     }
-    for (let i = 0; i < document.getElementsByClassName("grid").length; i++) {
-        document.getElementsByClassName("grid")[i].remove();
-    }
+}
+
+function chooseGridSize() {
+    shakeGrid();
     let size = prompt('Please enter a number between 0-100.', '4');
     createGrid(size); 
 }
